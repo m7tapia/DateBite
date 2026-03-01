@@ -190,7 +190,6 @@ export default function PresetManager({ onClose }) {
                   onChange={(e) => setNewPresetName(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleCreatePreset()}
                   className="w-full px-6 py-6 text-xl sm:text-2xl rounded-2xl bg-[var(--color-bg-secondary)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-violet)] transition-colors"
-                  autoFocus
                 />
                 <div>
                   <p className="text-base sm:text-lg text-[var(--color-text-muted)] mb-3">Pick an icon</p>

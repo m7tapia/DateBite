@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useStore } from './store/useStore'
 import Landing from './components/Landing'
@@ -13,6 +13,58 @@ function App() {
   const gamePhase = useStore((s) => s.gamePhase)
   const startGame = useStore((s) => s.startGame)
   const goHome = useStore((s) => s.goHome)
+  const resetGame = useStore((s) => s.resetGame)
+
+  // Derive a coarse screen key used for history entries.
+  // shuffle/reveal/aftermath all share one 'game' entry so back always
+  // returns to preGame rather than stepping through each game phase.
+  const screenKey = showPresets
+    ? 'presets'
+    : !activePreset
+    ? 'landing'
+    : gamePhase === 'idle'
+    ? 'preGame'
+    : 'game'
+
+  // Prevent the push-state effect from firing when we are already
+  // restoring state in response to a popstate event.
+  const isHandlingPopState = useRef(false)
+
+  // Keep browser history in sync with app state
+  useEffect(() => {
+    if (isHandlingPopState.current) {
+      isHandlingPopState.current = false
+      return
+    }
+    const state = { screen: screenKey }
+    if (!window.history.state) {
+      window.history.replaceState(state, '')
+    } else if (window.history.state.screen !== screenKey) {
+      window.history.pushState(state, '')
+    }
+  }, [screenKey])
+
+  // Handle Safari / mobile back button
+  useEffect(() => {
+    const handlePopState = (e) => {
+      const state = e.state
+      if (!state) return
+      isHandlingPopState.current = true
+
+      if (state.screen === 'landing') {
+        setShowPresets(false)
+        goHome()
+      } else if (state.screen === 'preGame') {
+        setShowPresets(false)
+        resetGame() // keeps activePreset, resets gamePhase → idle
+      } else if (state.screen === 'presets') {
+        setShowPresets(true)
+      }
+    }
+
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [goHome, resetGame])
 
   // Managing presets
   if (showPresets) {

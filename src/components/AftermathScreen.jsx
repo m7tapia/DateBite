@@ -15,7 +15,7 @@ export default function AftermathScreen() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="text-center relative z-10 w-full max-w-lg sm:max-w-xl"
+        className="text-center relative z-10 w-full max-w-xl sm:max-w-2xl"
       >
         {/* Winner */}
         <motion.div
@@ -23,11 +23,11 @@ export default function AftermathScreen() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-10"
         >
-          <p className="text-[var(--color-text-muted)] text-sm sm:text-base uppercase tracking-widest mb-3">
+          <p className="text-[var(--color-text-muted)] text-base sm:text-lg uppercase tracking-widest mb-4">
             It's decided
           </p>
           <h2
-            className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-4"
+            className="text-6xl sm:text-7xl md:text-8xl font-extrabold mb-5"
             style={{ 
               fontFamily: 'var(--font-display)',
               background: 'linear-gradient(135deg, var(--color-accent-violet-light) 0%, var(--color-accent-gold) 100%)',
@@ -38,7 +38,7 @@ export default function AftermathScreen() {
           >
             {revealedRestaurant}
           </h2>
-          <p className="text-[var(--color-text-secondary)] text-base sm:text-lg">
+          <p className="text-[var(--color-text-secondary)] text-lg sm:text-xl">
             No debates. No excuses. Go eat. 🍽️
           </p>
         </motion.div>
@@ -77,13 +77,13 @@ export default function AftermathScreen() {
         >
           <button
             onClick={resetGame}
-            className="w-full py-4 sm:py-5 rounded-2xl bg-[var(--color-accent-violet)] text-white font-semibold hover:bg-[var(--color-accent-violet-light)] transition-colors cursor-pointer text-base sm:text-xl"
+            className="w-full py-5 sm:py-6 rounded-2xl bg-[var(--color-accent-violet)] text-white font-semibold hover:bg-[var(--color-accent-violet-light)] transition-colors cursor-pointer text-xl sm:text-2xl"
           >
             Seal Your Fate Again
           </button>
           <button
             onClick={goHome}
-            className="w-full py-4 sm:py-5 rounded-2xl border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-card)] transition-colors cursor-pointer text-base sm:text-xl"
+            className="w-full py-5 sm:py-6 rounded-2xl border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-card)] transition-colors cursor-pointer text-xl sm:text-2xl"
           >
             Switch Mood
           </button>

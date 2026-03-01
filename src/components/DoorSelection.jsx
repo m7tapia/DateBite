@@ -43,7 +43,7 @@ export default function DoorSelection() {
         </p>
       </motion.div>
 
-      <div className="flex gap-5 sm:gap-8 md:gap-10 relative z-10">
+      <div className="flex gap-6 sm:gap-10 md:gap-14 relative z-10">
         {doors.map((_, index) => (
           <motion.button
             key={index}
@@ -58,7 +58,7 @@ export default function DoorSelection() {
             }}
             whileHover={{ 
               scale: 1.05,
-              boxShadow: '0 0 30px rgba(139, 92, 246, 0.3)',
+              boxShadow: '0 0 40px rgba(139, 92, 246, 0.35)',
             }}
             whileTap={{ scale: 0.95 }}
             onClick={() => handleDoorClick(index)}
@@ -66,10 +66,10 @@ export default function DoorSelection() {
             onPointerUp={() => setPressedDoor(null)}
             onPointerLeave={() => setPressedDoor(null)}
             className={`
-              relative w-32 h-48 sm:w-40 sm:h-60 md:w-48 md:h-72 rounded-2xl 
+              relative w-36 h-56 sm:w-48 sm:h-72 md:w-56 md:h-80 rounded-3xl 
               border-2 border-[var(--color-border)] 
               bg-gradient-to-b ${doorColors[index]}
-              flex flex-col items-center justify-center gap-3
+              flex flex-col items-center justify-center gap-4
               cursor-pointer transition-all duration-200
               hover:border-[var(--color-accent-violet)]
               ${pressedDoor === index ? 'border-[var(--color-accent-gold)]' : ''}
@@ -77,14 +77,14 @@ export default function DoorSelection() {
             style={{ perspective: '1000px' }}
           >
             {/* Door number */}
-            <span className="text-5xl sm:text-6xl md:text-7xl font-bold text-[var(--color-accent-violet-light)] opacity-40"
+            <span className="text-6xl sm:text-7xl md:text-8xl font-bold text-[var(--color-accent-violet-light)] opacity-40"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               {index + 1}
             </span>
             
             {/* Mystery icon */}
-            <span className="text-3xl sm:text-4xl">🚪</span>
+            <span className="text-4xl sm:text-5xl">🚪</span>
 
             {/* Glow effect on hover */}
             <motion.div

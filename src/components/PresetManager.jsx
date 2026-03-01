@@ -43,19 +43,19 @@ export default function PresetManager({ onClose }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen px-6 py-8 relative z-10"
+      className="min-h-screen flex flex-col items-center justify-center px-4 py-8 sm:px-8 sm:py-10 relative z-10"
     >
-      <div className="max-w-md mx-auto">
+      <div className="w-full max-w-md sm:max-w-xl lg:max-w-2xl">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-8 sm:mb-10">
           <div>
             <h2
-              className="text-2xl font-bold text-[var(--color-text-primary)]"
+              className="text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)]"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               Your Presets
             </h2>
-            <p className="text-sm text-[var(--color-text-muted)]">
+            <p className="text-sm sm:text-base text-[var(--color-text-muted)] mt-1">
               Build your go-to lists for any mood
             </p>
           </div>
@@ -70,7 +70,7 @@ export default function PresetManager({ onClose }) {
         </div>
 
         {/* Preset list */}
-        <div className="space-y-3 mb-6">
+        <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
           <AnimatePresence>
             {presets.map((preset) => (
               <motion.div
@@ -83,15 +83,15 @@ export default function PresetManager({ onClose }) {
               >
                 {/* Preset header */}
                 <div
-                  className="flex items-center gap-3 p-4 cursor-pointer hover:bg-[var(--color-bg-card-hover)] transition-colors"
+                  className="flex items-center gap-4 p-4 sm:p-5 cursor-pointer hover:bg-[var(--color-bg-card-hover)] transition-colors"
                   onClick={() => setEditingPreset(editingPreset === preset.id ? null : preset.id)}
                 >
-                  <span className="text-xl">{preset.emoji}</span>
+                  <span className="text-2xl sm:text-3xl">{preset.emoji}</span>
                   <div className="flex-1">
-                    <div className="font-semibold text-[var(--color-text-primary)]">
+                    <div className="font-semibold text-base sm:text-lg text-[var(--color-text-primary)]">
                       {preset.name}
                     </div>
-                    <div className="text-xs text-[var(--color-text-muted)]">
+                    <div className="text-xs sm:text-sm text-[var(--color-text-muted)]">
                       {preset.restaurants.length} spot{preset.restaurants.length !== 1 ? 's' : ''}
                     </div>
                   </div>
@@ -113,15 +113,15 @@ export default function PresetManager({ onClose }) {
                       transition={{ duration: 0.2 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-4 pb-4 border-t border-[var(--color-border)]">
+                      <div className="px-4 sm:px-5 pb-4 sm:pb-5 border-t border-[var(--color-border)]">
                         {/* Restaurant list */}
                         <div className="mt-3 space-y-2">
                           {preset.restaurants.map((restaurant) => (
                             <div
                               key={restaurant}
-                              className="flex items-center justify-between py-1.5 px-3 rounded-lg bg-[var(--color-bg-secondary)] group"
+                              className="flex items-center justify-between py-2 px-3 sm:px-4 rounded-lg bg-[var(--color-bg-secondary)] group"
                             >
-                              <span className="text-sm text-[var(--color-text-secondary)]">
+                              <span className="text-sm sm:text-base text-[var(--color-text-secondary)]">
                                 {restaurant}
                               </span>
                               <button
@@ -232,7 +232,7 @@ export default function PresetManager({ onClose }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               onClick={() => setShowNewPreset(true)}
-              className="w-full p-4 rounded-xl border border-dashed border-[var(--color-border)] text-[var(--color-text-muted)] hover:border-[var(--color-accent-violet)] hover:text-[var(--color-accent-violet-light)] transition-all cursor-pointer text-sm"
+              className="w-full p-4 sm:p-5 rounded-xl border border-dashed border-[var(--color-border)] text-[var(--color-text-muted)] hover:border-[var(--color-accent-violet)] hover:text-[var(--color-accent-violet-light)] transition-all cursor-pointer text-sm sm:text-base"
             >
               + New Preset
             </motion.button>

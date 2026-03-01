@@ -46,11 +46,11 @@ function PreGameScreen({ onStart, onBack, preset }) {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-center relative z-10 w-full max-w-sm"
+        className="text-center relative z-10 w-full max-w-sm sm:max-w-lg"
       >
-        <span className="text-5xl mb-4 block">{preset.emoji}</span>
+        <span className="text-5xl sm:text-6xl mb-4 block">{preset.emoji}</span>
         <h2
-          className="text-3xl font-bold text-[var(--color-text-primary)] mb-2"
+          className="text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)] mb-2"
           style={{ fontFamily: 'var(--font-display)' }}
         >
           {preset.name}

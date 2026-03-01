@@ -10,7 +10,7 @@ export default function Landing({ onManagePresets }) {
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-6 py-12 relative">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12 sm:px-8 relative">
       <div className="ambient-glow" />
       
       <motion.div
@@ -36,7 +36,7 @@ export default function Landing({ onManagePresets }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.6 }}
-        className="w-full max-w-md space-y-3 relative z-10"
+        className="w-full max-w-md sm:max-w-xl lg:max-w-2xl space-y-3 sm:space-y-4 relative z-10"
       >
         <p className="text-[var(--color-text-muted)] text-xs uppercase tracking-widest mb-4 text-center">
           Choose your mood
@@ -50,14 +50,14 @@ export default function Landing({ onManagePresets }) {
             transition={{ delay: 0.4 + i * 0.1 }}
             onClick={() => handlePresetClick(preset.id)}
             disabled={preset.restaurants.length < 2}
-            className="w-full flex items-center gap-4 p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-card-hover)] hover:border-[var(--color-border-glow)] transition-all duration-200 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed group"
+            className="w-full flex items-center gap-4 p-4 sm:p-5 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-card-hover)] hover:border-[var(--color-border-glow)] transition-all duration-200 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed group"
           >
-            <span className="text-2xl">{preset.emoji}</span>
+            <span className="text-2xl sm:text-3xl">{preset.emoji}</span>
             <div className="text-left flex-1">
-              <div className="font-semibold text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-violet-light)] transition-colors">
+              <div className="font-semibold text-base sm:text-lg text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-violet-light)] transition-colors">
                 {preset.name}
               </div>
-              <div className="text-xs text-[var(--color-text-muted)]">
+              <div className="text-xs sm:text-sm text-[var(--color-text-muted)]">
                 {preset.restaurants.length} spot{preset.restaurants.length !== 1 ? 's' : ''}
                 {preset.restaurants.length < 2 && ' — need at least 2'}
               </div>

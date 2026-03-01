@@ -1,16 +1,60 @@
-# React + Vite
+# DateBite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Stop arguing. Start eating.**
 
-Currently, two official plugins are available:
+DateBite is a couples-first dinner decider. Pick a mood, watch the deck shuffle, tap a card — dinner is decided. No negotiations, no going back.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## The Problem
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Every couple knows the loop: *"Where do you want to eat?" "I don't know, where do you want to eat?"* — DateBite ends it.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## How It Works
+
+1. **Pick a mood** — choose a preset that fits the vibe (Quick & Easy, Date Night, etc.)
+2. **Watch the shuffle** — all your spots are revealed, mixed, and 2–3 are drawn
+3. **Tap a card** — your fate is sealed
+4. **See what you missed** — the other cards flip over after the reveal
+
+---
+
+## Features
+
+- **Mood Presets** — create named lists for any occasion (Fancy Night, Late Night, Comfort Food)
+- **Persistent Storage** — presets save to the browser via LocalStorage, so your spots are always ready
+- **Animated Shuffle** — cards spread, scatter, gather, and deal before you pick
+- **The Reveal** — full-screen particle burst when your restaurant is chosen
+- **Aftermath** — shows what was behind the other cards for that extra moment of drama
+
+---
+
+## Tech Stack
+
+| Tool | Purpose |
+|---|---|
+| React + Vite | Frontend framework |
+| Framer Motion | All animations |
+| Zustand + persist | State management + LocalStorage |
+| Tailwind CSS v4 | Styling |
+
+---
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173)
+
+---
+
+## Notes
+
+- Presets are saved per browser — clearing site data or using incognito will reset them
+- Needs at least 2 spots in a preset to play
+- Mobile-first design — best experienced on a phone together

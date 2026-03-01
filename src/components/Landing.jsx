@@ -50,12 +50,12 @@ export default function Landing({ onManagePresets }) {
             whileTap={{ scale: 0.98 }}
             className="w-full flex items-center gap-5 p-6 sm:p-7 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-card-hover)] hover:border-[var(--color-border-glow)] transition-all duration-200 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed group"
           >
-            <span className="text-4xl sm:text-5xl">{preset.emoji}</span>
+            <span className="text-3xl sm:text-4xl">{preset.emoji}</span>
             <div className="text-left flex-1">
               <div className="font-semibold text-xl sm:text-2xl text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-violet-light)] transition-colors">
                 {preset.name}
               </div>
-              <div className="text-base sm:text-lg text-[var(--color-text-muted)] mt-1">
+              <div className="text-xl sm:text-2xl text-[var(--color-text-muted)] mt-1">
                 {preset.restaurants.length} spot{preset.restaurants.length !== 1 ? 's' : ''}
                 {preset.restaurants.length < 2 && ' — need at least 2'}
               </div>

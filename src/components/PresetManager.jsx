@@ -174,7 +174,7 @@ export default function PresetManager({ onClose }) {
         </div>
 
         {/* New preset form */}
-        <AnimatePresence>
+        <AnimatePresence initial={false}>
           {showNewPreset ? (
             <motion.div
               initial={{ opacity: 0, y: 10 }}

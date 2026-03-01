@@ -45,9 +45,6 @@ export default function Landing({ onManagePresets }) {
         {presets.map((preset, i) => (
           <motion.button
             key={preset.id}
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 + i * 0.1 }}
             onClick={() => handlePresetClick(preset.id)}
             disabled={preset.restaurants.length < 2}
             className="w-full flex items-center gap-5 p-5 sm:p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-card-hover)] hover:border-[var(--color-border-glow)] transition-all duration-200 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed group"

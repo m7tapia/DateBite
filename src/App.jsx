@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { Analytics } from '@vercel/analytics/react'
 import { useStore } from './store/useStore'
 import Landing from './components/Landing'
 import PresetManager from './components/PresetManager'
@@ -16,26 +17,44 @@ function App() {
 
   // Managing presets
   if (showPresets) {
-    return <PresetManager onClose={() => setShowPresets(false)} />
+    return (
+      <>
+        <PresetManager onClose={() => setShowPresets(false)} />
+        <Analytics />
+      </>
+    )
   }
 
   // No preset selected — show landing
   if (!activePreset) {
-    return <Landing onManagePresets={() => setShowPresets(true)} />
+    return (
+      <>
+        <Landing onManagePresets={() => setShowPresets(true)} />
+        <Analytics />
+      </>
+    )
   }
 
   // Preset selected, game not started yet
   if (gamePhase === 'idle') {
-    return <PreGameScreen onStart={startGame} onBack={goHome} preset={activePreset} />
+    return (
+      <>
+        <PreGameScreen onStart={startGame} onBack={goHome} preset={activePreset} />
+        <Analytics />
+      </>
+    )
   }
 
   // Game in progress
   return (
-    <AnimatePresence mode="wait">
-      {(gamePhase === 'shuffling' || gamePhase === 'choosing') && <ShuffleScreen key="shuffle" />}
-      {gamePhase === 'revealing' && <RevealScreen key="reveal" />}
-      {gamePhase === 'aftermath' && <AftermathScreen key="aftermath" />}
-    </AnimatePresence>
+    <>
+      <AnimatePresence mode="wait">
+        {(gamePhase === 'shuffling' || gamePhase === 'choosing') && <ShuffleScreen key="shuffle" />}
+        {gamePhase === 'revealing' && <RevealScreen key="reveal" />}
+        {gamePhase === 'aftermath' && <AftermathScreen key="aftermath" />}
+      </AnimatePresence>
+      <Analytics />
+    </>
   )
 }
 

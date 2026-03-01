@@ -82,7 +82,7 @@ function PreGameScreen({ onStart, onBack, preset }) {
 
         <button
           onClick={onBack}
-          className="mt-6 px-6 py-4 rounded-2xl border border-[var(--color-border)] text-lg sm:text-xl text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-card)] transition-all cursor-pointer"
+          className="mt-6 w-full py-5 rounded-2xl border border-[var(--color-border)] text-xl sm:text-2xl font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-card)] transition-all cursor-pointer"
         >
           ← Back to moods
         </button>

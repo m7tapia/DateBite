@@ -20,15 +20,15 @@ export default function Landing({ onManagePresets }) {
         className="text-center mb-12 relative z-10"
       >
         <h1 
-          className="text-5xl md:text-7xl font-bold mb-4 tracking-tight"
+          className="text-6xl sm:text-7xl md:text-8xl font-bold mb-5 tracking-tight"
           style={{ fontFamily: 'var(--font-display)' }}
         >
           <span className="text-[var(--color-accent-violet-light)]">Date</span>
           <span className="text-[var(--color-accent-gold)]">Bite</span>
         </h1>
-        <p className="text-[var(--color-text-secondary)] text-lg md:text-xl max-w-md mx-auto">
+        <p className="text-[var(--color-text-secondary)] text-xl sm:text-2xl max-w-lg mx-auto">
           Stop arguing. Start eating.<br />
-          <span className="text-[var(--color-text-muted)] text-sm">Pick a mood. Open a door. Dinner is served.</span>
+          <span className="text-[var(--color-text-muted)] text-base sm:text-lg">Pick a mood. Pick a card. Dinner is served.</span>
         </p>
       </motion.div>
 
@@ -38,7 +38,7 @@ export default function Landing({ onManagePresets }) {
         transition={{ delay: 0.3, duration: 0.6 }}
         className="w-full max-w-md sm:max-w-xl lg:max-w-2xl space-y-3 sm:space-y-4 relative z-10"
       >
-        <p className="text-[var(--color-text-muted)] text-xs uppercase tracking-widest mb-4 text-center">
+        <p className="text-[var(--color-text-muted)] text-sm sm:text-base uppercase tracking-widest mb-5 text-center">
           Choose your mood
         </p>
         
@@ -50,14 +50,14 @@ export default function Landing({ onManagePresets }) {
             transition={{ delay: 0.4 + i * 0.1 }}
             onClick={() => handlePresetClick(preset.id)}
             disabled={preset.restaurants.length < 2}
-            className="w-full flex items-center gap-4 p-4 sm:p-5 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-card-hover)] hover:border-[var(--color-border-glow)] transition-all duration-200 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed group"
+            className="w-full flex items-center gap-5 p-5 sm:p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-card)] hover:bg-[var(--color-bg-card-hover)] hover:border-[var(--color-border-glow)] transition-all duration-200 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed group"
           >
-            <span className="text-2xl sm:text-3xl">{preset.emoji}</span>
+            <span className="text-3xl sm:text-4xl">{preset.emoji}</span>
             <div className="text-left flex-1">
-              <div className="font-semibold text-base sm:text-lg text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-violet-light)] transition-colors">
+              <div className="font-semibold text-lg sm:text-xl text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-violet-light)] transition-colors">
                 {preset.name}
               </div>
-              <div className="text-xs sm:text-sm text-[var(--color-text-muted)]">
+              <div className="text-sm sm:text-base text-[var(--color-text-muted)] mt-0.5">
                 {preset.restaurants.length} spot{preset.restaurants.length !== 1 ? 's' : ''}
                 {preset.restaurants.length < 2 && ' — need at least 2'}
               </div>
@@ -77,7 +77,7 @@ export default function Landing({ onManagePresets }) {
       >
         <button
           onClick={onManagePresets}
-          className="text-[var(--color-text-muted)] text-xs hover:text-[var(--color-text-secondary)] transition-colors cursor-pointer"
+          className="text-[var(--color-text-muted)] text-sm sm:text-base hover:text-[var(--color-text-secondary)] transition-colors cursor-pointer"
         >
           ✏️ Manage your presets
         </button>

@@ -84,14 +84,14 @@ export default function ShuffleScreen() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 6 }}
           transition={{ duration: 0.3 }}
-          className="absolute top-1/4 text-[var(--color-text-muted)] text-sm uppercase tracking-widest z-20"
+          className="absolute top-1/4 text-[var(--color-text-muted)] text-base sm:text-lg uppercase tracking-widest z-20"
         >
           {label}
         </motion.p>
       </AnimatePresence>
 
       {/* Card stage */}
-      <div className="relative w-72 h-72 flex items-center justify-center z-10">
+      <div className="relative w-80 h-80 sm:w-96 sm:h-96 flex items-center justify-center z-10">
         {restaurants.map((name, i) => {
           const isDealCard = phase === 'deal' && doors.includes(name)
           const dealIndex   = phase === 'deal' ? doors.indexOf(name) : -1
@@ -150,7 +150,7 @@ export default function ShuffleScreen() {
             >
               <div
                 className={`
-                  w-20 h-28 rounded-xl border flex items-center justify-center text-center px-2
+                  w-24 h-36 sm:w-28 sm:h-40 rounded-xl border flex items-center justify-center text-center px-2
                   select-none
                   ${phase === 'gather' || (phase === 'deal' && !isDealCard)
                     ? 'bg-[var(--color-bg-card)] border-[var(--color-border)]'
@@ -172,7 +172,7 @@ export default function ShuffleScreen() {
                 {/* Show name when spread/shuffle; face-down pattern when gathered */}
                 {(phase === 'spread' || phase === 'shuffle') ? (
                   <span
-                    className="text-xs font-semibold text-[var(--color-text-primary)] leading-tight"
+                    className="text-sm sm:text-base font-semibold text-[var(--color-text-primary)] leading-tight"
                     style={{ fontFamily: 'var(--font-display)' }}
                   >
                     {name}
@@ -206,8 +206,8 @@ export default function ShuffleScreen() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: canPick ? 1 : 0, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="absolute z-20 text-sm font-semibold text-[var(--color-accent-violet-light)] uppercase tracking-widest"
-            style={{ top: 'calc(50% + 175px)' }}
+            className="absolute z-20 text-base sm:text-lg font-semibold text-[var(--color-accent-violet-light)] uppercase tracking-widest"
+            style={{ top: 'calc(50% + 200px)' }}
           >
             Tap a card to choose
           </motion.p>

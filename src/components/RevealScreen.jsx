@@ -55,7 +55,7 @@ export default function RevealScreen() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="text-[var(--color-text-muted)] text-sm uppercase tracking-widest mb-4"
+          className="text-base sm:text-lg uppercase tracking-widest mb-5 text-[var(--color-text-muted)]"
         >
           Tonight, you're eating at
         </motion.p>
@@ -64,7 +64,7 @@ export default function RevealScreen() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6, type: 'spring' }}
-          className="text-5xl md:text-7xl font-extrabold mb-6"
+          className="text-6xl sm:text-7xl md:text-8xl font-extrabold mb-8"
           style={{ 
             fontFamily: 'var(--font-display)',
             background: 'linear-gradient(135deg, var(--color-accent-violet-light) 0%, var(--color-accent-gold) 100%)',
@@ -80,7 +80,7 @@ export default function RevealScreen() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="text-4xl"
+          className="text-5xl sm:text-6xl"
         >
           🍽️
         </motion.div>

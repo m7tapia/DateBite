@@ -50,20 +50,20 @@ export default function PresetManager({ onClose }) {
         <div className="flex items-center justify-between mb-8 sm:mb-10">
           <div>
             <h2
-              className="text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)]"
+              className="text-4xl sm:text-5xl font-bold text-[var(--color-text-primary)]"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               Your Presets
             </h2>
-            <p className="text-sm sm:text-base text-[var(--color-text-muted)] mt-1">
+            <p className="text-base sm:text-lg text-[var(--color-text-muted)] mt-1.5">
               Build your go-to lists for any mood
             </p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-lg hover:bg-[var(--color-bg-card)] transition-colors cursor-pointer"
+            className="p-2.5 rounded-lg hover:bg-[var(--color-bg-card)] transition-colors cursor-pointer"
           >
-            <svg className="w-6 h-6 text-[var(--color-text-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-[var(--color-text-secondary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -83,15 +83,15 @@ export default function PresetManager({ onClose }) {
               >
                 {/* Preset header */}
                 <div
-                  className="flex items-center gap-4 p-4 sm:p-5 cursor-pointer hover:bg-[var(--color-bg-card-hover)] transition-colors"
+                  className="flex items-center gap-5 p-5 sm:p-6 cursor-pointer hover:bg-[var(--color-bg-card-hover)] transition-colors"
                   onClick={() => setEditingPreset(editingPreset === preset.id ? null : preset.id)}
                 >
-                  <span className="text-2xl sm:text-3xl">{preset.emoji}</span>
+                  <span className="text-3xl sm:text-4xl">{preset.emoji}</span>
                   <div className="flex-1">
-                    <div className="font-semibold text-base sm:text-lg text-[var(--color-text-primary)]">
+                    <div className="font-semibold text-lg sm:text-xl text-[var(--color-text-primary)]">
                       {preset.name}
                     </div>
-                    <div className="text-xs sm:text-sm text-[var(--color-text-muted)]">
+                    <div className="text-sm sm:text-base text-[var(--color-text-muted)] mt-0.5">
                       {preset.restaurants.length} spot{preset.restaurants.length !== 1 ? 's' : ''}
                     </div>
                   </div>
@@ -119,9 +119,9 @@ export default function PresetManager({ onClose }) {
                           {preset.restaurants.map((restaurant) => (
                             <div
                               key={restaurant}
-                              className="flex items-center justify-between py-2 px-3 sm:px-4 rounded-lg bg-[var(--color-bg-secondary)] group"
+                              className="flex items-center justify-between py-3 px-4 sm:px-5 rounded-lg bg-[var(--color-bg-secondary)] group"
                             >
-                              <span className="text-sm sm:text-base text-[var(--color-text-secondary)]">
+                              <span className="text-base sm:text-lg text-[var(--color-text-secondary)]">
                                 {restaurant}
                               </span>
                               <button
@@ -144,11 +144,11 @@ export default function PresetManager({ onClose }) {
                             value={newRestaurant}
                             onChange={(e) => setNewRestaurant(e.target.value)}
                             onKeyDown={(e) => e.key === 'Enter' && handleAddRestaurant(preset.id)}
-                            className="flex-1 px-3 py-2 text-sm rounded-lg bg-[var(--color-bg-secondary)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-violet)] transition-colors"
+                            className="flex-1 px-4 py-3 text-base sm:text-lg rounded-lg bg-[var(--color-bg-secondary)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-violet)] transition-colors"
                           />
                           <button
                             onClick={() => handleAddRestaurant(preset.id)}
-                            className="px-3 py-2 text-sm rounded-lg bg-[var(--color-accent-violet)] text-white font-medium hover:bg-[var(--color-accent-violet-light)] transition-colors cursor-pointer"
+                            className="px-4 py-3 text-base sm:text-lg rounded-lg bg-[var(--color-accent-violet)] text-white font-medium hover:bg-[var(--color-accent-violet-light)] transition-colors cursor-pointer"
                           >
                             Add
                           </button>
@@ -160,7 +160,7 @@ export default function PresetManager({ onClose }) {
                             deletePreset(preset.id)
                             setEditingPreset(null)
                           }}
-                          className="mt-3 text-xs text-[var(--color-danger)] hover:underline cursor-pointer"
+                          className="mt-4 text-sm sm:text-base text-[var(--color-danger)] hover:underline cursor-pointer"
                         >
                           Delete this preset
                         </button>
@@ -189,17 +189,17 @@ export default function PresetManager({ onClose }) {
                   value={newPresetName}
                   onChange={(e) => setNewPresetName(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleCreatePreset()}
-                  className="w-full px-3 py-2 text-sm rounded-lg bg-[var(--color-bg-secondary)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-violet)] transition-colors"
+                  className="w-full px-4 py-3 text-base sm:text-lg rounded-lg bg-[var(--color-bg-secondary)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-violet)] transition-colors"
                   autoFocus
                 />
                 <div>
-                  <p className="text-xs text-[var(--color-text-muted)] mb-2">Pick an icon</p>
-                  <div className="flex flex-wrap gap-2">
+                  <p className="text-sm sm:text-base text-[var(--color-text-muted)] mb-3">Pick an icon</p>
+                  <div className="flex flex-wrap gap-2 sm:gap-3 mb-3">
                     {EMOJI_OPTIONS.map((emoji) => (
                       <button
                         key={emoji}
                         onClick={() => setNewPresetEmoji(emoji)}
-                        className={`w-9 h-9 rounded-lg flex items-center justify-center text-lg transition-all cursor-pointer ${
+                        className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-xl sm:text-2xl transition-all cursor-pointer ${
                           newPresetEmoji === emoji
                             ? 'bg-[var(--color-accent-violet)] scale-110'
                             : 'bg-[var(--color-bg-secondary)] hover:bg-[var(--color-bg-card-hover)]'
@@ -209,18 +209,34 @@ export default function PresetManager({ onClose }) {
                       </button>
                     ))}
                   </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[var(--color-bg-secondary)] border border-[var(--color-accent-violet)] flex items-center justify-center text-2xl sm:text-3xl flex-shrink-0">
+                      {newPresetEmoji}
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="Or type your own emoji..."
+                      onChange={(e) => {
+                        const val = [...e.target.value].filter((c) =>
+                          /\p{Emoji}/u.test(c)
+                        )
+                        if (val.length > 0) setNewPresetEmoji(val[val.length - 1])
+                      }}
+                      className="flex-1 px-4 py-2.5 text-base sm:text-lg rounded-xl bg-[var(--color-bg-secondary)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent-violet)] transition-colors"
+                    />
+                  </div>
                 </div>
                 <div className="flex gap-2">
                   <button
                     onClick={() => setShowNewPreset(false)}
-                    className="flex-1 py-2 text-sm rounded-lg border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-card-hover)] transition-colors cursor-pointer"
+                    className="flex-1 py-3 sm:py-4 text-base sm:text-lg rounded-xl border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-card-hover)] transition-colors cursor-pointer"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={handleCreatePreset}
                     disabled={!newPresetName.trim()}
-                    className="flex-1 py-2 text-sm rounded-lg bg-[var(--color-accent-violet)] text-white font-medium hover:bg-[var(--color-accent-violet-light)] transition-colors cursor-pointer disabled:opacity-40"
+                    className="flex-1 py-3 sm:py-4 text-base sm:text-lg rounded-xl bg-[var(--color-accent-violet)] text-white font-medium hover:bg-[var(--color-accent-violet-light)] transition-colors cursor-pointer disabled:opacity-40"
                   >
                     Create
                   </button>

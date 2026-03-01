@@ -33,17 +33,17 @@ export default function DoorSelection() {
         className="text-center mb-10 relative z-10"
       >
         <h2
-          className="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-2"
+          className="text-4xl sm:text-5xl md:text-6xl font-bold text-[var(--color-text-primary)] mb-3"
           style={{ fontFamily: 'var(--font-display)' }}
         >
           Your fate is sealed.
         </h2>
-        <p className="text-[var(--color-text-secondary)]">
+        <p className="text-lg sm:text-xl text-[var(--color-text-secondary)]">
           Pick a door.
         </p>
       </motion.div>
 
-      <div className="flex gap-4 md:gap-6 relative z-10">
+      <div className="flex gap-5 sm:gap-8 md:gap-10 relative z-10">
         {doors.map((_, index) => (
           <motion.button
             key={index}
@@ -66,10 +66,10 @@ export default function DoorSelection() {
             onPointerUp={() => setPressedDoor(null)}
             onPointerLeave={() => setPressedDoor(null)}
             className={`
-              relative w-24 h-36 md:w-32 md:h-48 rounded-2xl 
+              relative w-32 h-48 sm:w-40 sm:h-60 md:w-48 md:h-72 rounded-2xl 
               border-2 border-[var(--color-border)] 
               bg-gradient-to-b ${doorColors[index]}
-              flex flex-col items-center justify-center gap-2
+              flex flex-col items-center justify-center gap-3
               cursor-pointer transition-all duration-200
               hover:border-[var(--color-accent-violet)]
               ${pressedDoor === index ? 'border-[var(--color-accent-gold)]' : ''}
@@ -77,14 +77,14 @@ export default function DoorSelection() {
             style={{ perspective: '1000px' }}
           >
             {/* Door number */}
-            <span className="text-4xl md:text-5xl font-bold text-[var(--color-accent-violet-light)] opacity-40"
+            <span className="text-5xl sm:text-6xl md:text-7xl font-bold text-[var(--color-accent-violet-light)] opacity-40"
               style={{ fontFamily: 'var(--font-display)' }}
             >
               {index + 1}
             </span>
             
             {/* Mystery icon */}
-            <span className="text-2xl">🚪</span>
+            <span className="text-3xl sm:text-4xl">🚪</span>
 
             {/* Glow effect on hover */}
             <motion.div
@@ -104,7 +104,7 @@ export default function DoorSelection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        className="mt-8 text-xs text-[var(--color-text-muted)] relative z-10"
+        className="mt-10 text-sm sm:text-base text-[var(--color-text-muted)] relative z-10"
       >
         No going back. Choose wisely.
       </motion.p>

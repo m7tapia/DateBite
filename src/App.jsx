@@ -48,20 +48,20 @@ function PreGameScreen({ onStart, onBack, preset }) {
         animate={{ opacity: 1, y: 0 }}
         className="text-center relative z-10 w-full max-w-sm sm:max-w-lg"
       >
-        <span className="text-5xl sm:text-6xl mb-4 block">{preset.emoji}</span>
+        <span className="text-6xl sm:text-7xl mb-5 block">{preset.emoji}</span>
         <h2
-          className="text-3xl sm:text-4xl font-bold text-[var(--color-text-primary)] mb-2"
+          className="text-4xl sm:text-5xl font-bold text-[var(--color-text-primary)] mb-3"
           style={{ fontFamily: 'var(--font-display)' }}
         >
           {preset.name}
         </h2>
-        <p className="text-[var(--color-text-muted)] text-sm mb-4">
+        <p className="text-[var(--color-text-muted)] text-base sm:text-lg mb-5">
           {preset.restaurants.length} spots ready
         </p>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
           {preset.restaurants.map((r) => (
-            <span key={r} className="px-2 py-1 text-xs rounded-md bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] border border-[var(--color-border)]">
+            <span key={r} className="px-3 py-1.5 text-sm sm:text-base rounded-lg bg-[var(--color-bg-card)] text-[var(--color-text-secondary)] border border-[var(--color-border)]">
               {r}
             </span>
           ))}
@@ -71,7 +71,7 @@ function PreGameScreen({ onStart, onBack, preset }) {
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           onClick={onStart}
-          className="w-full py-4 rounded-xl text-white font-bold text-lg cursor-pointer"
+          className="w-full py-5 sm:py-6 rounded-2xl text-white font-bold text-xl sm:text-2xl cursor-pointer"
           style={{
             fontFamily: 'var(--font-display)',
             background: 'linear-gradient(135deg, var(--color-accent-violet) 0%, var(--color-accent-gold) 100%)',
@@ -82,7 +82,7 @@ function PreGameScreen({ onStart, onBack, preset }) {
 
         <button
           onClick={onBack}
-          className="mt-4 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] transition-colors cursor-pointer"
+          className="mt-5 text-base sm:text-lg text-[var(--color-text-muted)] hover:text-[var(--color-text-secondary)] transition-colors cursor-pointer"
         >
           ← Back to moods
         </button>
